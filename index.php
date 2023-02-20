@@ -26,10 +26,13 @@ class Movie
     }
 
     public function getDetail(){
-        return "Titolo: $this->title - Genere: {$this->genre->name} - Durata: $this->lenght";
+        $genre_name = $this->genre->name;
+        return "Titolo: $this->title - Genere: $genre_name - Durata: $this->lenght";
     }
 }
 
-$memento = new Movie('Memento', '2:30', 'http//...', 'Thriller');
+$thriller = new Genre('Thriller');
 
-var_dump($memento);
+$memento = new Movie('Memento', '2:30', 'http//...', $thriller);
+
+echo $memento->getDetail();
